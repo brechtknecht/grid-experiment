@@ -1,53 +1,121 @@
-<script>
-	import Header from './Header.svelte';
-	import './styles.css';
-</script>
-
-<div class="app">
-	<Header />
-
-	<main>
-		<slot />
-	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
-</div>
-
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+	.container {
+	  width: 100%;
+	  max-height: 70vh;
+	  overflow-x: scroll;
+	  margin-top: 20px;
 	}
+		
+	.demo-widget {
+	  background: #f1f1f1;
+	  height: 100%;
+	  width: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+	</style>
+	
+	<label>
+	  <input type="checkbox"  bind:checked={useWindow} />
+	  Use document
+	</label>
+	
+	<label>
+	Sensor value
+	<input type=number bind:value={sensor} />
+	</label>
+	<div class:container={!useWindow} bind:this={container}>
+	  <Grid bind:items={items} rowHeight={100} let:item let:dataItem {rows} {scroller} {sensor} {fillSpace}>
+		<div class=demo-widget>{dataItem.id}</div>
+	  </Grid>
+	</div>
+	
+	
+	<script>
+	import { onMount } from 'svelte';
+	import Grid from "svelte-grid";
+	import gridHelp from "svelte-grid/build/helper/index.mjs";
+	
+	const id = () => "_" + Math.random().toString(36).substr(2, 9);
+	
+	let container;
+	let useWindow = true;
+	let documentContainer;
+	let fillSpace = false;
+	let scroller;
+	let sensor = 20;
 
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+	onMount(() => {
+		documentContainer = document.documentElement;
+		scroller = container;
+	});
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
+	$: scroller = useWindow ? documentContainer : container;
+	
+	
+	let items = [
+	  {
+		6: gridHelp.item({
+		  x: 0,
+		  y: 0,
+		  w: 5,
+		  h: 4,
+		}),
+		id: id(),
+	  },
+	
+	  {
+		6: gridHelp.item({
+		  x: 6,
+		  y: 0,
+		  w: 5,
+		  h: 4,
+		}),
+		id: id(),
+	  },
+		
+	  {
+		6: gridHelp.item({
+		  x: 12,
+		  y: 0,
+		  w: 4,
+		  h: 2,
+		}),
+		id: id(),
+	  },
+		
+	  {
+		6: gridHelp.item({
+		  x: 12,
+		  y: 2,
+		  w: 4,
+		  h: 2,
+		}),
+		id: id(),
+	  },	
+	  {
+		6: gridHelp.item({
+		  x: 16,
+		  y: 0,
+		  w: 5,
+		  h: 4,
+		}),
+		id: id(),
+	  },
+	  {
+		6: gridHelp.item({
+		  x: 200,
+		  y: 0,
+		  w: 1,
+		  h: 1,
+		}),
+		id: id(),
+	  },
+	];
+	
+	const rows = [
+	  [ 1100, 6 ],
+	];
+	</script>
+	
