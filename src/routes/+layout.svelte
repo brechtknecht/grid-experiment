@@ -13,21 +13,26 @@
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
+	  border-radius: 8px;
+	  border: 1px dashed red;
+	  display: flex;
+	  flex-direction: column;
 	}
 	</style>
+
 	
-	<label>
-	  <input type="checkbox"  bind:checked={useWindow} />
-	  Use document
-	</label>
-	
-	<label>
-	Sensor value
-	<input type=number bind:value={sensor} />
-	</label>
 	<div class:container={!useWindow} bind:this={container}>
 	  <Grid bind:items={items} rowHeight={100} let:item let:dataItem {rows} {scroller} {sensor} {fillSpace}>
-		<div class=demo-widget>{dataItem.id}</div>
+		<div class=demo-widget>
+			<div class="id">{dataItem.id}</div> <br/>
+			{#if item.closestEdge}
+				<div class="edge-debug">{item.closestEdge?.type} edge from {item.closestEdge?.elementId}</div>
+			{/if}
+
+			{#if item.providesClosestEdge}
+				<div class="edge-debug">{item.providesClosestEdge.edgeType}</div>
+			{/if}
+		</div>
 	  </Grid>
 	</div>
 	
