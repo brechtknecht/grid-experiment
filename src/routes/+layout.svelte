@@ -27,6 +27,7 @@
 			<div class="id">{dataItem.id}</div> <br/>
 			{#if item.closestEdge}
 				<div class="edge-debug">{item.closestEdge?.type} edge from {item.closestEdge?.elementId}</div>
+				<pre>{JSON.stringify(item, null, 2)}</pre>
 			{/if}
 
 			{#if item.providesClosestEdge}
