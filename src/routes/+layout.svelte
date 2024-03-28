@@ -25,7 +25,6 @@
 	  <Grid bind:items={items} rowHeight={100} let:item let:dataItem {rows} {scroller} {sensor} {fillSpace}>
 		<div class=demo-widget>
 			<div class="id">{dataItem.id}</div> <br/>
-			<pre>{JSON.stringify(item, null, 2)}</pre>
 			{#if item.closestEdge}
 				<div class="edge-debug">{item.closestEdge?.type} edge from {item.closestEdge?.elementId}</div>
 				<pre>{JSON.stringify(item, null, 2)}</pre>
