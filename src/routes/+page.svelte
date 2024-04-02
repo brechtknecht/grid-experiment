@@ -35,8 +35,8 @@
 	
 	<script>
 	import { onMount } from 'svelte'
-	import Grid from "svelte-grid";
-	import gridHelp from "svelte-grid/build/helper/index.mjs";
+	import Grid from "svelte-grid-custom";
+	import gridHelp from "svelte-grid-custom/build/helper/index.mjs";
 	
 	const id = () => "_" + Math.random().toString(36).substr(2, 9);
 	
