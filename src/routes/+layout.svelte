@@ -62,7 +62,7 @@
 	
 	let items = [
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 0,
 		  y: 0,
 		  w: 5,
@@ -72,17 +72,17 @@
 	  },
 	
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 6,
 		  y: 0,
-		  w: 5,
+		  w: 6,
 		  h: 4,
 		}),
 		id: id(),
 	  },
 		
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 12,
 		  y: 0,
 		  w: 4,
@@ -92,7 +92,7 @@
 	  },
 		
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 12,
 		  y: 2,
 		  w: 4,
@@ -101,7 +101,7 @@
 		id: id(),
 	  },	
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 16,
 		  y: 0,
 		  w: 5,
@@ -110,7 +110,7 @@
 		id: id(),
 	  },
 	  {
-		6: gridHelp.item({
+		20: gridHelp.item({
 		  x: 200,
 		  y: 0,
 		  w: 1,
@@ -121,7 +121,7 @@
 	];
 	
 	const rows = [
-	  [ 1100, 6 ],
+	  [ 1100, 20 ],
 	];
 	</script>
 	
