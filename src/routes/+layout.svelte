@@ -81,22 +81,13 @@
 		id: id(),
 	  },
 		
+		
 	  {
 		20: gridHelp.item({
 		  x: 24,
 		  y: 0,
 		  w: 10,
-		  h: 10,
-		}),
-		id: id(),
-	  },
-		
-	  {
-		20: gridHelp.item({
-		  x: 24,
-		  y: 10,
-		  w: 10,
-		  h: 10,
+		  h: 20,
 		}),
 		id: id(),
 	  },	
