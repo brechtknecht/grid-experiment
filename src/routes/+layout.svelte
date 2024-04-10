@@ -25,10 +25,10 @@
 	  <Grid bind:items={items} rowHeight={100} let:item let:dataItem {rows} {scroller} {sensor} {fillSpace}>
 		<div class=demo-widget>
 			<div class="id">{dataItem.id}</div> <br/>
-			{#if item.closestEdge}
+			<!-- {#if item.closestEdge}
 				<div class="edge-debug">{item.closestEdge?.type} edge from {item.closestEdge?.elementId}</div>
 				<pre>{JSON.stringify(item, null, 2)}</pre>
-			{/if}
+			{/if} -->
 
 			{#if item.providesClosestEdge}
 				<div class="edge-debug">{item.providesClosestEdge.edgeType}</div>
@@ -65,59 +65,50 @@
 		20: gridHelp.item({
 		  x: 0,
 		  y: 0,
-		  w: 5,
-		  h: 4,
+		  w: 12,
+		  h: 20,
 		}),
 		id: id(),
 	  },
 	
 	  {
 		20: gridHelp.item({
-		  x: 6,
+		  x: 12,
 		  y: 0,
-		  w: 6,
-		  h: 4,
+		  w: 12,
+		  h: 20,
 		}),
 		id: id(),
 	  },
 		
 	  {
 		20: gridHelp.item({
-		  x: 12,
+		  x: 24,
 		  y: 0,
-		  w: 4,
-		  h: 2,
+		  w: 10,
+		  h: 10,
 		}),
 		id: id(),
 	  },
 		
 	  {
 		20: gridHelp.item({
-		  x: 12,
-		  y: 2,
-		  w: 4,
-		  h: 2,
+		  x: 24,
+		  y: 10,
+		  w: 10,
+		  h: 10,
 		}),
 		id: id(),
 	  },	
 	  {
 		20: gridHelp.item({
-		  x: 16,
+		  x: 34,
 		  y: 0,
-		  w: 5,
-		  h: 4,
+		  w: 10,
+		  h: 20,
 		}),
 		id: id(),
-	  },
-	  {
-		20: gridHelp.item({
-		  x: 200,
-		  y: 0,
-		  w: 1,
-		  h: 1,
-		}),
-		id: id(),
-	  },
+	  }
 	];
 	
 	const rows = [
